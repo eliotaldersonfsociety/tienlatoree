@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
@@ -48,12 +48,28 @@ interface Brand {
   logo: string
 }
 
+const paymentLogos = [
+  { name: "Nequi", src: "/nequi.svg" },
+  { name: "Bancolombia", src: "/bancolombia.svg" },
+  { name: "Daviplata", src: "/daviplata.svg" },
+]
+
 export function ProductShowcase() {
   const { addToCart } = useCart()
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState("Black")
   const [selectedSize, setSelectedSize] = useState("M")
   const [selectedBrand, setSelectedBrand] = useState<Brand>(brands[1])
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0)
+
+  // Rotar logos cada 2 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLogoIndex((prev) => (prev + 1) % paymentLogos.length)
+    }, 2000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const increaseQuantity = () => setQuantity((q) => q + 1)
   const decreaseQuantity = () => setQuantity((q) => Math.max(1, q - 1))
@@ -260,29 +276,24 @@ export function ProductShowcase() {
               Agregar al carrito
             </button>
 
-            {/* Sección de los logos (fondo blanco) */}
-            <div className="flex h-full bg-white">
-              <Image
-                src="/nequi.svg"
-                alt="Nequi"
-                width={36}
-                height={36}
-                className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
-              />
-              <Image
-                src="/bancolombia.svg"
-                alt="Bancolombia"
-                width={36}
-                height={36}
-                className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
-              />
-              <Image
-                src="/daviplata.svg"
-                alt="Daviplata"
-                width={36}
-                height={36}
-                className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
-              />
+            {/* Sección del logo (fondo blanco con rotación) */}
+            <div className="flex h-full bg-white relative overflow-hidden w-20">
+              {paymentLogos.map((logo, index) => (
+                <div
+                  key={logo.name}
+                  className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+                    index === currentLogoIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={36}
+                    height={36}
+                    className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
