@@ -211,7 +211,10 @@ export function ProductShowcase() {
 
         {/* Control de cantidad */}
         <div>
-          <label className="block text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+          <label
+            htmlFor="quantity"
+            className="block text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-2"
+          >
             Cantidad ({quantity} en el carrito)
           </label>
           <div className="flex items-center gap-2 sm:gap-3">
@@ -238,6 +241,7 @@ export function ProductShowcase() {
               </svg>
             </Button>
             <Input
+              id="quantity"
               type="number"
               value={quantity}
               onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
