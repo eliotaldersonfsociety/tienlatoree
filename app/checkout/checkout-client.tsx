@@ -371,8 +371,21 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <Image src="/qr/nequi.webp" alt="QR Nequi" width={150} height={150} className="rounded-lg mb-2" />
-                                                                <p className="text-xs text-zinc-400 mb-2">Envía el comprobante abajo</p>
+                                                                <div className="bg-white rounded-lg p-3 mb-2">
+                                                                    <Image src="/qr/nequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
+                                                                </div>
+                                                                <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2 font-bold">310 244 31 50</p>
+                                                                    <div className="flex justify-center mt-2">
+                                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3102443150")}>
+                                                                            {copied === "3102443150" ? <Check size={12} /> : <Copy size={12} />}
+                                                                            <span className="ml-1">{copied === "3102443150" ? "Copiado" : "Copiar número"}</span>
+                                                                        </Button>
+                                                                    </div>
+                                                                </div>
+                                                                <p className="text-xs text-green-500 mt-2">Envía el comprobante abajo</p>
                                                             </AccordionContent>
                                                         </AccordionItem>
                                                         <AccordionItem value="bancolombia" className="border-zinc-800">
@@ -383,14 +396,21 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <Image src="/qr/bancolombia.webp" alt="QR Bancolombia" width={150} height={150} className="rounded-lg mb-2" />
-                                                                <div className="flex items-center gap-2 mb-2">
-                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">08895966552</span>
-                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08895966552")}>
-                                                                        {copied === "08895966552" ? <Check size={12} /> : <Copy size={12} />}
-                                                                        <span className="ml-1">{copied === "08895966552" ? "Copiado" : "Copiar"}</span>
-                                                                    </Button>
+                                                                <div className="bg-white rounded-lg p-3 mb-2">
+                                                                    <Image src="/qr/bancolombia.webp" alt="QR Bancolombia" width={150} height={150} className="rounded" />
                                                                 </div>
+                                                                <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2 font-bold">Ahorros: 088-000 464-68</p>
+                                                                    <div className="flex justify-center mt-2">
+                                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08800046468")}>
+                                                                            {copied === "08800046468" ? <Check size={12} /> : <Copy size={12} />}
+                                                                            <span className="ml-1">{copied === "08800046468" ? "Copiado" : "Copiar cuenta"}</span>
+                                                                        </Button>
+                                                                    </div>
+                                                                </div>
+                                                                <p className="text-xs text-green-500 mt-2">Envía el comprobante abajo</p>
                                                             </AccordionContent>
                                                         </AccordionItem>
                                                         <AccordionItem value="bbva" className="border-zinc-800">
@@ -401,14 +421,18 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <p className="text-sm text-zinc-300 mb-2">bbva@latorreimperial.com</p>
-                                                                <div className="flex items-center gap-2 mb-2">
-                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">bbva@latorreimperial.com</span>
-                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("bbva@latorreimperial.com")}>
-                                                                        {copied === "bbva@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
-                                                                        <span className="ml-1">{copied === "bbva@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
-                                                                    </Button>
+                                                                <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2 font-bold">Ahorro: 0323 557 504</p>
+                                                                    <div className="flex justify-center mt-2">
+                                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("0323557504")}>
+                                                                            {copied === "0323557504" ? <Check size={12} /> : <Copy size={12} />}
+                                                                            <span className="ml-1">{copied === "0323557504" ? "Copiado" : "Copiar cuenta"}</span>
+                                                                        </Button>
+                                                                    </div>
                                                                 </div>
+                                                                <p className="text-xs text-green-500 mt-2">Envía el comprobante abajo</p>
                                                             </AccordionContent>
                                                         </AccordionItem>
                                                         <AccordionItem value="daviplata" className="border-zinc-800">
@@ -419,14 +443,18 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <Image src="/qrdaviplata.webp" alt="QR Daviplata" width={150} height={150} className="rounded-lg mb-2" />
-                                                                <div className="flex items-center gap-2 mb-2">
-                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">3178898234</span>
-                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3178898234")}>
-                                                                        {copied === "3178898234" ? <Check size={12} /> : <Copy size={12} />}
-                                                                        <span className="ml-1">{copied === "3178898234" ? "Copiado" : "Copiar"}</span>
-                                                                    </Button>
+                                                                <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2 font-bold">310 244 31 50</p>
+                                                                    <div className="flex justify-center mt-2">
+                                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3102443150")}>
+                                                                            {copied === "3102443150" ? <Check size={12} /> : <Copy size={12} />}
+                                                                            <span className="ml-1">{copied === "3102443150" ? "Copiado" : "Copiar número"}</span>
+                                                                        </Button>
+                                                                    </div>
                                                                 </div>
+                                                                <p className="text-xs text-green-500 mt-2">Envía el comprobante abajo</p>
                                                             </AccordionContent>
                                                         </AccordionItem>
                                                         <AccordionItem value="westernunion" className="border-zinc-800">
@@ -437,14 +465,19 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <p className="text-sm text-zinc-300 mb-2">western@latorreimperial.com</p>
-                                                                <div className="flex items-center gap-2 mb-2">
-                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">western@latorreimperial.com</span>
-                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("western@latorreimperial.com")}>
-                                                                        {copied === "western@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
-                                                                        <span className="ml-1">{copied === "western@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
-                                                                    </Button>
+                                                                <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">Banco Unión - Agente</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Mildred Latorre M.</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                                    <p className="text-xs text-zinc-400 text-center mb-2 font-bold">Ahorro: 01735600000533001</p>
+                                                                    <div className="flex justify-center mt-2">
+                                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("01735600000533001")}>
+                                                                            {copied === "01735600000533001" ? <Check size={12} /> : <Copy size={12} />}
+                                                                            <span className="ml-1">{copied === "01735600000533001" ? "Copiado" : "Copiar cuenta"}</span>
+                                                                        </Button>
+                                                                    </div>
                                                                 </div>
+                                                                <p className="text-xs text-green-500 mt-2">Envía el comprobante abajo</p>
                                                             </AccordionContent>
                                                         </AccordionItem>
                                                     </Accordion>
@@ -518,8 +551,21 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                          <span className="text-base text-black font-bold">Nequi</span>
                                                      </div>
                                                  </AccordionTrigger>
-                                                 <AccordionContent className="flex justify-center pt-2">
-                                                     <Image src="/qr/nequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
+                                                 <AccordionContent className="flex flex-col items-center pt-2">
+                                                     <div className="bg-white rounded-lg p-3 mb-2">
+                                                         <Image src="/qr/nequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
+                                                     </div>
+                                                     <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2 font-bold">310 244 31 50</p>
+                                                         <div className="flex justify-center mt-2">
+                                                             <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3102443150")}>
+                                                                 {copied === "3102443150" ? <Check size={12} /> : <Copy size={12} />}
+                                                                 <span className="ml-1">{copied === "3102443150" ? "Copiado" : "Copiar número"}</span>
+                                                             </Button>
+                                                         </div>
+                                                     </div>
                                                  </AccordionContent>
                                              </AccordionItem>
                                              <AccordionItem value="bancolombia-log" className="border-zinc-800">
@@ -530,14 +576,20 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
-                                                     <Image src="/qr/bancolombia.webp" alt="QR Bancolombia" width={150} height={150} className="rounded" />
-                                                      <div className="flex items-center gap-2 mt-2">
-                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">08895966552</span>
-                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08895966552")}>
-                                                            {copied === "08895966552" ? <Check size={12} /> : <Copy size={12} />}
-                                                            <span className="ml-1">{copied === "08895966552" ? "Copiado" : "Copiar"}</span>
-                                                         </Button>
-                                                      </div>
+                                                     <div className="bg-white rounded-lg p-3 mb-2">
+                                                         <Image src="/qr/bancolombia.webp" alt="QR Bancolombia" width={150} height={150} className="rounded" />
+                                                     </div>
+                                                     <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2 font-bold">Ahorros: 088-000 464-68</p>
+                                                         <div className="flex justify-center mt-2">
+                                                             <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08800046468")}>
+                                                                 {copied === "08800046468" ? <Check size={12} /> : <Copy size={12} />}
+                                                                 <span className="ml-1">{copied === "08800046468" ? "Copiado" : "Copiar cuenta"}</span>
+                                                             </Button>
+                                                         </div>
+                                                     </div>
                                                  </AccordionContent>
                                              </AccordionItem>
                                              <AccordionItem value="bbva-log" className="border-zinc-800">
@@ -548,13 +600,16 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
-                                                     <p className="text-sm text-zinc-300 mb-2">bbva@latorreimperial.com</p>
-                                                     <div className="flex items-center gap-2 mt-2">
-                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">bbva@latorreimperial.com</span>
-                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("bbva@latorreimperial.com")}>
-                                                            {copied === "bbva@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
-                                                            <span className="ml-1">{copied === "bbva@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
-                                                         </Button>
+                                                     <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2 font-bold">Ahorro: 0323 557 504</p>
+                                                         <div className="flex justify-center mt-2">
+                                                             <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("0323557504")}>
+                                                                 {copied === "0323557504" ? <Check size={12} /> : <Copy size={12} />}
+                                                                 <span className="ml-1">{copied === "0323557504" ? "Copiado" : "Copiar cuenta"}</span>
+                                                             </Button>
+                                                         </div>
                                                      </div>
                                                  </AccordionContent>
                                              </AccordionItem>
@@ -566,13 +621,16 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
-                                                     <Image src="/qrdaviplata.webp" alt="QR Daviplata" width={150} height={150} className="rounded" />
-                                                     <div className="flex items-center gap-2 mt-2">
-                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">3178898234</span>
-                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3178898234")}>
-                                                            {copied === "3178898234" ? <Check size={12} /> : <Copy size={12} />}
-                                                            <span className="ml-1">{copied === "3178898234" ? "Copiado" : "Copiar"}</span>
-                                                         </Button>
+                                                     <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Latorre</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2 font-bold">310 244 31 50</p>
+                                                         <div className="flex justify-center mt-2">
+                                                             <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3102443150")}>
+                                                                 {copied === "3102443150" ? <Check size={12} /> : <Copy size={12} />}
+                                                                 <span className="ml-1">{copied === "3102443150" ? "Copiado" : "Copiar número"}</span>
+                                                             </Button>
+                                                         </div>
                                                      </div>
                                                  </AccordionContent>
                                              </AccordionItem>
@@ -584,13 +642,17 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
-                                                     <p className="text-sm text-zinc-300 mb-2">western@latorreimperial.com</p>
-                                                     <div className="flex items-center gap-2 mt-2">
-                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">western@latorreimperial.com</span>
-                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("western@latorreimperial.com")}>
-                                                            {copied === "western@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
-                                                            <span className="ml-1">{copied === "western@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
-                                                         </Button>
+                                                     <div className="bg-zinc-800 rounded-lg p-3 w-full max-w-xs">
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">Banco Unión - Agente</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">Titular: Katherine Mildred Latorre M.</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2">CC: 1.149.454.850</p>
+                                                         <p className="text-xs text-zinc-400 text-center mb-2 font-bold">Ahorro: 01735600000533001</p>
+                                                         <div className="flex justify-center mt-2">
+                                                             <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("01735600000533001")}>
+                                                                 {copied === "01735600000533001" ? <Check size={12} /> : <Copy size={12} />}
+                                                                 <span className="ml-1">{copied === "01735600000533001" ? "Copiado" : "Copiar cuenta"}</span>
+                                                             </Button>
+                                                         </div>
                                                      </div>
                                                  </AccordionContent>
                                              </AccordionItem>
