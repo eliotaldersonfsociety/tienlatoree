@@ -113,6 +113,7 @@ export function ProductShowcase() {
           width={768}
           height={1360}
           className="w-full h-full object-cover"
+          priority
         />
       </div>
 
