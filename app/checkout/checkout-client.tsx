@@ -371,7 +371,7 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <Image src="/qrnequi.webp" alt="QR Nequi" width={150} height={150} className="rounded-lg mb-2" />
+                                                                <Image src="/qr/nequi.webp" alt="QR Nequi" width={150} height={150} className="rounded-lg mb-2" />
                                                                 <p className="text-xs text-zinc-400 mb-2">Envía el comprobante abajo</p>
                                                             </AccordionContent>
                                                         </AccordionItem>
@@ -383,7 +383,7 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <Image src="/qrbancolombia.jpeg" alt="QR Bancolombia" width={150} height={150} className="rounded-lg mb-2" />
+                                                                <Image src="/qr/bancolombia.webp" alt="QR Bancolombia" width={150} height={150} className="rounded-lg mb-2" />
                                                                 <div className="flex items-center gap-2 mb-2">
                                                                     <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">08895966552</span>
                                                                     <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08895966552")}>
@@ -519,7 +519,7 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex justify-center pt-2">
-                                                     <Image src="/qrnequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
+                                                     <Image src="/qr/nequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
                                                  </AccordionContent>
                                              </AccordionItem>
                                              <AccordionItem value="bancolombia-log" className="border-zinc-800">
@@ -530,7 +530,7 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
-                                                     <Image src="/qrbancolombia.jpeg" alt="QR Bancolombia" width={150} height={150} className="rounded" />
+                                                     <Image src="/qr/bancolombia.webp" alt="QR Bancolombia" width={150} height={150} className="rounded" />
                                                       <div className="flex items-center gap-2 mt-2">
                                                          <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">08895966552</span>
                                                          <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08895966552")}>
