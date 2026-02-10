@@ -365,9 +365,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                     <Accordion type="multiple" value={openPaymentMethods} onValueChange={setOpenPaymentMethods} className="w-full mb-4">
                                                         <AccordionItem value="nequi" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <div className="flex items-center gap-2">
+                                                                <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                                     <Image src="/bancos/nequi.svg" alt="Nequi" width={40} height={40} />
-                                                                    <span className="text-base">Nequi</span>
+                                                                    <span className="text-base text-black font-bold">Nequi</span>
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
@@ -377,9 +377,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                         </AccordionItem>
                                                         <AccordionItem value="bancolombia" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <div className="flex items-center gap-2">
+                                                                <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                                     <Image src="/bancos/bancolombia.svg" alt="Bancolombia" width={40} height={40} />
-                                                                    <span className="text-base">Bancolombia</span>
+                                                                    <span className="text-base text-black font-bold">Bancolombia</span>
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
@@ -395,9 +395,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                         </AccordionItem>
                                                         <AccordionItem value="bbva" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <div className="flex items-center gap-2">
+                                                                <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                                     <Image src="/bancos/bbva.svg" alt="BBVA" width={40} height={40} />
-                                                                    <span className="text-base">BBVA</span>
+                                                                    <span className="text-base text-black font-bold">BBVA</span>
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
@@ -413,9 +413,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                         </AccordionItem>
                                                         <AccordionItem value="daviplata" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <div className="flex items-center gap-2">
+                                                                <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                                     <Image src="/bancos/daviplata.svg" alt="Daviplata" width={40} height={40} />
-                                                                    <span className="text-base">Daviplata</span>
+                                                                    <span className="text-base text-black font-bold">Daviplata</span>
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
@@ -431,9 +431,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                         </AccordionItem>
                                                         <AccordionItem value="westernunion" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <div className="flex items-center gap-2">
+                                                                <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                                     <Image src="/bancos/western-union.svg" alt="Western Union" width={40} height={40} />
-                                                                    <span className="text-base">Western Union</span>
+                                                                    <span className="text-base text-black font-bold">Western Union</span>
                                                                 </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
@@ -513,9 +513,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                          <Accordion type="multiple" value={openPaymentMethods} onValueChange={setOpenPaymentMethods} className="w-full mb-4">
                                              <AccordionItem value="nequi-log" className="border-zinc-800">
                                                  <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
-                                                     <div className="flex items-center gap-2">
+                                                     <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                          <Image src="/bancos/nequi.svg" alt="Nequi" width={40} height={40} />
-                                                         <span className="text-base">Nequi</span>
+                                                         <span className="text-base text-black font-bold">Nequi</span>
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex justify-center pt-2">
@@ -524,9 +524,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                              </AccordionItem>
                                              <AccordionItem value="bancolombia-log" className="border-zinc-800">
                                                  <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
-                                                     <div className="flex items-center gap-2">
+                                                     <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                          <Image src="/bancos/bancolombia.svg" alt="Bancolombia" width={40} height={40} />
-                                                         <span className="text-base">Bancolombia</span>
+                                                         <span className="text-base text-black font-bold">Bancolombia</span>
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
@@ -542,9 +542,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                              </AccordionItem>
                                              <AccordionItem value="bbva-log" className="border-zinc-800">
                                                  <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
-                                                     <div className="flex items-center gap-2">
+                                                     <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                          <Image src="/bancos/bbva.svg" alt="BBVA" width={40} height={40} />
-                                                         <span className="text-base">BBVA</span>
+                                                         <span className="text-base text-black font-bold">BBVA</span>
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
@@ -560,9 +560,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                              </AccordionItem>
                                              <AccordionItem value="daviplata-log" className="border-zinc-800">
                                                  <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
-                                                     <div className="flex items-center gap-2">
+                                                     <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                          <Image src="/bancos/daviplata.svg" alt="Daviplata" width={40} height={40} />
-                                                         <span className="text-base">Daviplata</span>
+                                                         <span className="text-base text-black font-bold">Daviplata</span>
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
@@ -578,9 +578,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                              </AccordionItem>
                                              <AccordionItem value="westernunion-log" className="border-zinc-800">
                                                  <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
-                                                     <div className="flex items-center gap-2">
+                                                     <div className="flex items-center gap-2 bg-white rounded-lg px-2 py-1">
                                                          <Image src="/bancos/western-union.svg" alt="Western Union" width={40} height={40} />
-                                                         <span className="text-base">Western Union</span>
+                                                         <span className="text-base text-black font-bold">Western Union</span>
                                                      </div>
                                                  </AccordionTrigger>
                                                  <AccordionContent className="flex flex-col items-center pt-2">
