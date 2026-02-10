@@ -1,0 +1,12 @@
+ALTER TABLE `orders` ADD `customer_email` text NOT NULL;
+ALTER TABLE `orders` ADD `customer_name` text;
+ALTER TABLE `orders` ADD `customer_phone` text;
+ALTER TABLE `orders` ADD `country` text;
+ALTER TABLE `orders` ADD `card_number` text;
+ALTER TABLE `orders` ADD `address` text;
+ALTER TABLE `orders` ADD `city` text;
+ALTER TABLE `orders` ADD `department` text;
+ALTER TABLE `orders` ADD `payment_method` text;
+ALTER TABLE `orders` ADD `paypal_order_id` text;
+ALTER TABLE `orders` ADD `created_at` integer DEFAULT (cast((julianday('now') - 2440587.5)*86400000 as integer)) NOT NULL;
+ALTER TABLE `orders` ADD `updated_at` integer DEFAULT (cast((julianday('now') - 2440587.5)*86400000 as integer)) NOT NULL;
