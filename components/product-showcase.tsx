@@ -159,7 +159,7 @@ export function ProductShowcase() {
                     ? "border-blue-500 ring-2 ring-blue-200 scale-110"
                     : "border-gray-300 hover:border-gray-400"
                 )}
-                title={color.name}
+                aria-label={`Color ${color.name}`}
               />
             ))}
           </div>
@@ -179,7 +179,7 @@ export function ProductShowcase() {
                     ? "border-gray-500 bg-gray-600 text-white"
                     : "border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 text-gray-700 dark:text-gray-300"
                 )}
-              >
+                aria-label={`Seleccionar marca ${brand.name}`}>
                 {brand.name}
               </button>
             ))}
@@ -202,7 +202,7 @@ export function ProductShowcase() {
                     ? "border-gray-500 bg-gray-600 text-white"
                     : "border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 text-gray-700 dark:text-gray-300"
                 )}
-              >
+                aria-label={`Seleccionar talla ${size}`}>
                 {size}
               </button>
             ))}
@@ -220,6 +220,7 @@ export function ProductShowcase() {
               size="icon"
               onClick={decreaseQuantity}
               disabled={quantity <= 1}
+              aria-label="Disminuir cantidad"
               className="h-9 w-9 sm:h-10 sm:w-10 border-gray-300 dark:border-gray-600"
             >
               <svg
@@ -247,6 +248,7 @@ export function ProductShowcase() {
               variant="outline"
               size="icon"
               onClick={increaseQuantity}
+              aria-label="Aumentar cantidad"
               className="h-9 w-9 sm:h-10 sm:w-10 border-gray-300 dark:border-gray-600"
             >
               <svg
