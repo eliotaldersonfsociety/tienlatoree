@@ -3,9 +3,7 @@ import { Hero } from "@/components/hero"
 import { OrderProcess } from "@/components/order-process"
 import { ProductsWrapper } from "@/components/products-wrapper"
 import { defaultProducts, type Product } from "@/lib/store"
-import { ProductShowcase } from "@/components/product-showcase"
 import { TrustBadges } from "@/components/trust-badges"
-import { CustomerReviews } from "@/components/customer-reviews" 
 import VirtualTryOn from '@/components/VirtualTryOn'
 
 const SocialNotificationsWrapper = dynamic(() => import('@/components/social-notifications-wrapper').then(mod => ({ default: mod.SocialNotificationsWrapper })))
@@ -15,14 +13,14 @@ const FAQs = dynamic(() => import('@/components/faqs/faqs').then(mod => ({ defau
 const DeliveryInfo = dynamic(() => import('@/components/delivery-info').then(mod => ({ default: mod.DeliveryInfo })))
 const NuestrosClientes = dynamic(() => import('@/components/nuestros-clientes').then(mod => ({ default: mod.NuestrosClientes })))
 const WhatsAppButton = dynamic(() => import('@/components/whatsapp-button'))
-
+const CustomerReviews = dynamic(() => import('@/components/customer-reviews').then(mod => mod.CustomerReviews))
 const ResultsCarouselClient = dynamic(() => import('@/components/result-carrousel/results-carousel.client'))
 const AITestimonials = dynamic(() => import('@/components/ai-testimonials'))
 const AIChat = dynamic(() => import('@/components/ai-chat').then(mod => ({ default: mod.default })))
 const PersonalizedRecommendations = dynamic(() => import('@/components/personalized-recommendations').then(mod => ({ default: mod.PersonalizedRecommendations })))
 const PredictiveHeatmap = dynamic(() => import('@/components/predictive-heatmap').then(mod => ({ default: mod.PredictiveHeatmap })))
 const RealtimeBehaviorPanel = dynamic(() => import('@/components/RealtimeBehaviorPanel').then(mod => ({ default: mod.RealtimeBehaviorPanel })))
-
+const ProductShowcase = dynamic(() => import('@/components/product-showcase').then(mod => mod.ProductShowcase))
 
 export default function HomePage() {
 
