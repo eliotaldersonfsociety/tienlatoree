@@ -49,9 +49,9 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
   // Manejar cambio de método de pago
   const handlePaymentMethodChange = (value: "transfer" | "cash_on_delivery") => {
     setPaymentMethod(value);
-    // Abrir automáticamente Nequi cuando se selecciona transferencia
+    // Abrir automáticamente todos los métodos cuando se selecciona transferencia
     if (value === "transfer") {
-      setOpenPaymentMethods(["nequi", "bancolombia", "daviplata", "zelle"]);
+      setOpenPaymentMethods(["nequi", "bancolombia", "bbva", "daviplata", "westernunion"]);
     } else {
       setOpenPaymentMethods([]);
     }
@@ -162,52 +162,52 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                 <div>
                      <h2 className="text-xl font-bold mb-4">Tu Carrito</h2>
                      <div className="space-y-4">
-                        {cartItems.length === 0 ? (
-                             <div className="bg-[#111] border border-zinc-800 rounded-xl p-8 text-center text-zinc-500">
-                                <p>Tu carrito está vacío.</p>
-                                <Link href="/" className="text-green-500 hover:underline mt-2 inline-block">Ir a comprar</Link>
-                             </div>
-                        ) : (
-                            cartItems.map((item) => (
-                                <div key={item.id} className="bg-[#111] border border-zinc-800 rounded-xl p-4 flex gap-4 items-center animate-in fade-in slide-in-from-bottom-2">
-                                    <div className="relative w-20 h-20 bg-zinc-800 rounded-lg overflow-hidden shrink-0">
-                                       <Image src={item.image} alt={item.name} fill className="object-cover" />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                        <h3 className="font-semibold text-sm md:text-base truncate pr-2">{item.name}</h3>
-                                        <p className="text-xs text-zinc-500 truncate">{item.category || "Producto Digital"}</p>
-                                        <div className="text-green-500 font-bold mt-1 text-sm md:text-base">
-                                            {formatPrice(item.price * item.quantity)}
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col items-end gap-2">
-                                        <button 
-                                            onClick={() => removeItem(item.id)}
-                                            className="text-zinc-500 hover:text-red-500 transition-colors p-1"
-                                            aria-label="Eliminar"
-                                        >
-                                            <Trash2 size={16} />
-                                        </button>
-                                        <div className="flex items-center gap-2 bg-zinc-900 rounded-lg p-1 border border-zinc-800">
-                                            <button 
-                                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                className="w-6 h-6 flex items-center justify-center text-zinc-400 hover:text-white"
-                                            >
-                                                <Minus size={14} />
-                                            </button>
-                                            <span className="text-sm font-medium w-4 text-center">{item.quantity}</span>
-                                            <button 
-                                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                className="w-6 h-6 flex items-center justify-center text-zinc-400 hover:text-white"
-                                            >
-                                                <Plus size={14} />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        )}
-                     </div>
+                         {cartItems.length === 0 ? (
+                              <div className="bg-[#111] border border-zinc-800 rounded-xl p-8 text-center text-zinc-500">
+                                 <p>Tu carrito está vacío.</p>
+                                 <Link href="/" className="text-green-500 hover:underline mt-2 inline-block">Ir a comprar</Link>
+                              </div>
+                         ) : (
+                             cartItems.map((item) => (
+                                 <div key={item.id} className="bg-[#111] border border-zinc-800 rounded-xl p-4 flex gap-4 items-center animate-in fade-in slide-in-from-bottom-2">
+                                     <div className="relative w-20 h-20 bg-zinc-800 rounded-lg overflow-hidden shrink-0">
+                                        <Image src={item.image} alt={item.name} fill className="object-cover" />
+                                     </div>
+                                     <div className="flex-1 min-w-0">
+                                         <h3 className="font-semibold text-sm md:text-base truncate pr-2">{item.name}</h3>
+                                         <p className="text-xs text-zinc-500 truncate">{item.category || "Producto Digital"}</p>
+                                         <div className="text-green-500 font-bold mt-1 text-sm md:text-base">
+                                             {formatPrice(item.price * item.quantity)}
+                                         </div>
+                                     </div>
+                                     <div className="flex flex-col items-end gap-2">
+                                         <button 
+                                             onClick={() => removeItem(item.id)}
+                                             className="text-zinc-500 hover:text-red-500 transition-colors p-1"
+                                             aria-label="Eliminar"
+                                         >
+                                             <Trash2 size={16} />
+                                         </button>
+                                         <div className="flex items-center gap-2 bg-zinc-900 rounded-lg p-1 border border-zinc-800">
+                                             <button 
+                                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                                 className="w-6 h-6 flex items-center justify-center text-zinc-400 hover:text-white"
+                                             >
+                                                 <Minus size={14} />
+                                             </button>
+                                             <span className="text-sm font-medium w-4 text-center">{item.quantity}</span>
+                                             <button 
+                                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                 className="w-6 h-6 flex items-center justify-center text-zinc-400 hover:text-white"
+                                             >
+                                                 <Plus size={14} />
+                                             </button>
+                                         </div>
+                                     </div>
+                                 </div>
+                             ))
+                         )}
+                      </div>
                 </div>
 
                 {/* Totals */}
@@ -352,7 +352,7 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                             >
                                                 <div className={cn("flex items-center space-x-2 border rounded-lg p-3 transition-colors", paymentMethod === 'transfer' ? 'border-green-500 bg-zinc-900' : 'border-zinc-700 hover:border-zinc-600')}>
                                                     <RadioGroupItem value="transfer" id="transfer" className="text-green-500 border-zinc-500" />
-                                                    <Label htmlFor="transfer" className="cursor-pointer flex-1">Transferencia Bancaria (Nequi/Bancolombia)</Label>
+                                                    <Label htmlFor="transfer" className="cursor-pointer flex-1">Transferencia Bancaria</Label>
                                                 </div>
                                                 <div className={cn("flex items-center space-x-2 border rounded-lg p-3 transition-colors", paymentMethod === 'cash_on_delivery' ? 'border-green-500 bg-zinc-900' : 'border-zinc-700 hover:border-zinc-600')}>
                                                     <RadioGroupItem value="cash_on_delivery" id="cash_on_delivery" className="text-green-500 border-zinc-500" />
@@ -365,7 +365,10 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                     <Accordion type="multiple" value={openPaymentMethods} onValueChange={setOpenPaymentMethods} className="w-full mb-4">
                                                         <AccordionItem value="nequi" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <span className="text-sm">📱 Nequi</span>
+                                                                <div className="flex items-center gap-2">
+                                                                    <Image src="/bancos/nequi.svg" alt="Nequi" width={40} height={40} />
+                                                                    <span className="text-base">Nequi</span>
+                                                                </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
                                                                 <Image src="/qrnequi.webp" alt="QR Nequi" width={150} height={150} className="rounded-lg mb-2" />
@@ -374,7 +377,10 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                         </AccordionItem>
                                                         <AccordionItem value="bancolombia" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <span className="text-sm">🏦 Bancolombia</span>
+                                                                <div className="flex items-center gap-2">
+                                                                    <Image src="/bancos/bancolombia.svg" alt="Bancolombia" width={40} height={40} />
+                                                                    <span className="text-base">Bancolombia</span>
+                                                                </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
                                                                 <Image src="/qrbancolombia.jpeg" alt="QR Bancolombia" width={150} height={150} className="rounded-lg mb-2" />
@@ -387,9 +393,30 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionContent>
                                                         </AccordionItem>
+                                                        <AccordionItem value="bbva" className="border-zinc-800">
+                                                            <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
+                                                                <div className="flex items-center gap-2">
+                                                                    <Image src="/bancos/bbva.svg" alt="BBVA" width={40} height={40} />
+                                                                    <span className="text-base">BBVA</span>
+                                                                </div>
+                                                            </AccordionTrigger>
+                                                            <AccordionContent className="flex flex-col items-center pt-2">
+                                                                <p className="text-sm text-zinc-300 mb-2">bbva@latorreimperial.com</p>
+                                                                <div className="flex items-center gap-2 mb-2">
+                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">bbva@latorreimperial.com</span>
+                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("bbva@latorreimperial.com")}>
+                                                                        {copied === "bbva@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
+                                                                        <span className="ml-1">{copied === "bbva@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
+                                                                    </Button>
+                                                                </div>
+                                                            </AccordionContent>
+                                                        </AccordionItem>
                                                         <AccordionItem value="daviplata" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <span className="text-sm">📲 Daviplata</span>
+                                                                <div className="flex items-center gap-2">
+                                                                    <Image src="/bancos/daviplata.svg" alt="Daviplata" width={40} height={40} />
+                                                                    <span className="text-base">Daviplata</span>
+                                                                </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
                                                                 <Image src="/qrdaviplata.webp" alt="QR Daviplata" width={150} height={150} className="rounded-lg mb-2" />
@@ -402,17 +429,20 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                                                                 </div>
                                                             </AccordionContent>
                                                         </AccordionItem>
-                                                        <AccordionItem value="zelle" className="border-zinc-800">
+                                                        <AccordionItem value="westernunion" className="border-zinc-800">
                                                             <AccordionTrigger className="hover:no-underline py-2 text-zinc-300 hover:text-white">
-                                                                <span className="text-sm">💸 Zelle</span>
+                                                                <div className="flex items-center gap-2">
+                                                                    <Image src="/bancos/western-union.svg" alt="Western Union" width={40} height={40} />
+                                                                    <span className="text-base">Western Union</span>
+                                                                </div>
                                                             </AccordionTrigger>
                                                             <AccordionContent className="flex flex-col items-center pt-2">
-                                                                <p className="text-sm text-zinc-300 mb-2">latorreimperial@gmail.com</p>
+                                                                <p className="text-sm text-zinc-300 mb-2">western@latorreimperial.com</p>
                                                                 <div className="flex items-center gap-2 mb-2">
-                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">latorreimperial@gmail.com</span>
-                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("latorreimperial@gmail.com")}>
-                                                                        {copied === "latorreimperial@gmail.com" ? <Check size={12} /> : <Copy size={12} />}
-                                                                        <span className="ml-1">{copied === "latorreimperial@gmail.com" ? "Copiado" : "Copiar"}</span>
+                                                                    <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">western@latorreimperial.com</span>
+                                                                    <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("western@latorreimperial.com")}>
+                                                                        {copied === "western@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
+                                                                        <span className="ml-1">{copied === "western@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
                                                                     </Button>
                                                                 </div>
                                                             </AccordionContent>
@@ -460,90 +490,129 @@ export default function CheckoutClient({ isLoggedIn }: CheckoutClientProps) {
                              </div>
 
                              <div className="space-y-4 animate-in fade-in">
-                                  <div className="space-y-2">
-                                        <Label className="text-base text-zinc-300">Método de Pago</Label>
-                                        <RadioGroup 
-                                            value={paymentMethod} 
-                                            onValueChange={handlePaymentMethodChange} 
-                                            className="space-y-3"
-                                        >
-                                            <div className={cn("flex items-center space-x-2 border rounded-lg p-3 transition-colors", paymentMethod === 'transfer' ? 'border-green-500 bg-zinc-900/50' : 'border-zinc-700 hover:border-zinc-600')}>
-                                                <RadioGroupItem value="transfer" id="transfer-logged" className="text-green-500 border-zinc-500" />
-                                                <Label htmlFor="transfer-logged" className="cursor-pointer flex-1">Transferencia Bancaria</Label>
-                                            </div>
-                                            <div className={cn("flex items-center space-x-2 border rounded-lg p-3 transition-colors", paymentMethod === 'cash_on_delivery' ? 'border-green-500 bg-zinc-900/50' : 'border-zinc-700 hover:border-zinc-600')}>
-                                                <RadioGroupItem value="cash_on_delivery" id="cash_on_delivery-logged" className="text-green-500 border-zinc-500" />
-                                                <Label htmlFor="cash_on_delivery-logged" className="cursor-pointer flex-1">Pago contra Entrega</Label>
-                                            </div>
-                                        </RadioGroup>
-                                  </div>
+                                   <div className="space-y-2">
+                                         <Label className="text-base text-zinc-300">Método de Pago</Label>
+                                         <RadioGroup 
+                                             value={paymentMethod} 
+                                             onValueChange={handlePaymentMethodChange} 
+                                             className="space-y-3"
+                                         >
+                                             <div className={cn("flex items-center space-x-2 border rounded-lg p-3 transition-colors", paymentMethod === 'transfer' ? 'border-green-500 bg-zinc-900/50' : 'border-zinc-700 hover:border-zinc-600')}>
+                                                 <RadioGroupItem value="transfer" id="transfer-logged" className="text-green-500 border-zinc-500" />
+                                                 <Label htmlFor="transfer-logged" className="cursor-pointer flex-1">Transferencia Bancaria</Label>
+                                             </div>
+                                             <div className={cn("flex items-center space-x-2 border rounded-lg p-3 transition-colors", paymentMethod === 'cash_on_delivery' ? 'border-green-500 bg-zinc-900/50' : 'border-zinc-700 hover:border-zinc-600')}>
+                                                 <RadioGroupItem value="cash_on_delivery" id="cash_on_delivery-logged" className="text-green-500 border-zinc-500" />
+                                                 <Label htmlFor="cash_on_delivery-logged" className="cursor-pointer flex-1">Pago contra Entrega</Label>
+                                             </div>
+                                         </RadioGroup>
+                                   </div>
 
-                                  {paymentMethod === "transfer" && (
-                                     <div className="mt-4 p-4 bg-zinc-900 rounded-lg border border-zinc-800 animate-in fade-in slide-in-from-top-2">
-                                        <Accordion type="multiple" value={openPaymentMethods} onValueChange={setOpenPaymentMethods} className="w-full mb-4">
-                                            <AccordionItem value="nequi-log" className="border-zinc-800">
-                                                <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">Nequi</AccordionTrigger>
-                                                <AccordionContent className="flex justify-center pt-2">
-                                                    <Image src="/qrnequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                            <AccordionItem value="banco-log" className="border-zinc-800">
-                                                <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">Bancolombia</AccordionTrigger>
-                                                <AccordionContent className="flex flex-col items-center pt-2">
-                                                    <Image src="/qrbancolombia.jpeg" alt="QR Bancolombia" width={150} height={150} className="rounded" />
+                                   {paymentMethod === "transfer" && (
+                                      <div className="mt-4 p-4 bg-zinc-900 rounded-lg border border-zinc-800 animate-in fade-in slide-in-from-top-2">
+                                         <Accordion type="multiple" value={openPaymentMethods} onValueChange={setOpenPaymentMethods} className="w-full mb-4">
+                                             <AccordionItem value="nequi-log" className="border-zinc-800">
+                                                 <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
+                                                     <div className="flex items-center gap-2">
+                                                         <Image src="/bancos/nequi.svg" alt="Nequi" width={40} height={40} />
+                                                         <span className="text-base">Nequi</span>
+                                                     </div>
+                                                 </AccordionTrigger>
+                                                 <AccordionContent className="flex justify-center pt-2">
+                                                     <Image src="/qrnequi.webp" alt="QR Nequi" width={150} height={150} className="rounded" />
+                                                 </AccordionContent>
+                                             </AccordionItem>
+                                             <AccordionItem value="bancolombia-log" className="border-zinc-800">
+                                                 <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
+                                                     <div className="flex items-center gap-2">
+                                                         <Image src="/bancos/bancolombia.svg" alt="Bancolombia" width={40} height={40} />
+                                                         <span className="text-base">Bancolombia</span>
+                                                     </div>
+                                                 </AccordionTrigger>
+                                                 <AccordionContent className="flex flex-col items-center pt-2">
+                                                     <Image src="/qrbancolombia.jpeg" alt="QR Bancolombia" width={150} height={150} className="rounded" />
+                                                      <div className="flex items-center gap-2 mt-2">
+                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">08895966552</span>
+                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08895966552")}>
+                                                            {copied === "08895966552" ? <Check size={12} /> : <Copy size={12} />}
+                                                            <span className="ml-1">{copied === "08895966552" ? "Copiado" : "Copiar"}</span>
+                                                         </Button>
+                                                      </div>
+                                                 </AccordionContent>
+                                             </AccordionItem>
+                                             <AccordionItem value="bbva-log" className="border-zinc-800">
+                                                 <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
+                                                     <div className="flex items-center gap-2">
+                                                         <Image src="/bancos/bbva.svg" alt="BBVA" width={40} height={40} />
+                                                         <span className="text-base">BBVA</span>
+                                                     </div>
+                                                 </AccordionTrigger>
+                                                 <AccordionContent className="flex flex-col items-center pt-2">
+                                                     <p className="text-sm text-zinc-300 mb-2">bbva@latorreimperial.com</p>
                                                      <div className="flex items-center gap-2 mt-2">
-                                                        <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">08895966552</span>
-                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("08895966552")}>
-                                                           {copied === "08895966552" ? <Check size={12} /> : <Copy size={12} />}
-                                                           <span className="ml-1">{copied === "08895966552" ? "Copiado" : "Copiar"}</span>
-                                                        </Button>
-                                                    </div>
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                            <AccordionItem value="daviplata-log" className="border-zinc-800">
-                                                <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">📲 Daviplata</AccordionTrigger>
-                                                <AccordionContent className="flex flex-col items-center pt-2">
-                                                    <div className="flex items-center gap-2 mt-2">
-                                                        <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">3178898234</span>
-                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3178898234")}>
+                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">bbva@latorreimperial.com</span>
+                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("bbva@latorreimperial.com")}>
+                                                            {copied === "bbva@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
+                                                            <span className="ml-1">{copied === "bbva@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
+                                                         </Button>
+                                                     </div>
+                                                 </AccordionContent>
+                                             </AccordionItem>
+                                             <AccordionItem value="daviplata-log" className="border-zinc-800">
+                                                 <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
+                                                     <div className="flex items-center gap-2">
+                                                         <Image src="/bancos/daviplata.svg" alt="Daviplata" width={40} height={40} />
+                                                         <span className="text-base">Daviplata</span>
+                                                     </div>
+                                                 </AccordionTrigger>
+                                                 <AccordionContent className="flex flex-col items-center pt-2">
+                                                     <Image src="/qrdaviplata.webp" alt="QR Daviplata" width={150} height={150} className="rounded" />
+                                                     <div className="flex items-center gap-2 mt-2">
+                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">3178898234</span>
+                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("3178898234")}>
                                                             {copied === "3178898234" ? <Check size={12} /> : <Copy size={12} />}
                                                             <span className="ml-1">{copied === "3178898234" ? "Copiado" : "Copiar"}</span>
-                                                        </Button>
-                                                    </div>
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                            <AccordionItem value="zelle-log" className="border-zinc-800">
-                                                <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">💸 Zelle</AccordionTrigger>
-                                                <AccordionContent className="flex flex-col items-center pt-2">
-                                                    <p className="text-sm text-zinc-300 mb-2">latorreimperial@gmail.com</p>
-                                                    <div className="flex items-center gap-2 mt-2">
-                                                        <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">latorreimperial@gmail.com</span>
-                                                        <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("latorreimperial@gmail.com")}>
-                                                            {copied === "latorreimperial@gmail.com" ? <Check size={12} /> : <Copy size={12} />}
-                                                            <span className="ml-1">{copied === "latorreimperial@gmail.com" ? "Copiado" : "Copiar"}</span>
-                                                        </Button>
-                                                    </div>
-                                                </AccordionContent>
-                                            </AccordionItem>
-                                        </Accordion>
-                                        <div className="space-y-2">
-                                            <Label htmlFor="proof-log" className="text-sm text-zinc-400">Subir Comprobante</Label>
-                                            <Input type="file" id="proof-log" accept="image/*" onChange={(e) => setPaymentProof(e.target.files?.[0] || null)} className="bg-black border-zinc-700 text-sm file:bg-zinc-800 file:text-white file:border-0 file:rounded-md file:px-2 file:py-1 file:mr-2 file:text-xs hover:file:bg-zinc-700" />
-                                        </div>
-                                     </div>
-                                  )}
+                                                         </Button>
+                                                     </div>
+                                                 </AccordionContent>
+                                             </AccordionItem>
+                                             <AccordionItem value="westernunion-log" className="border-zinc-800">
+                                                 <AccordionTrigger className="py-2 text-zinc-300 hover:text-white">
+                                                     <div className="flex items-center gap-2">
+                                                         <Image src="/bancos/western-union.svg" alt="Western Union" width={40} height={40} />
+                                                         <span className="text-base">Western Union</span>
+                                                     </div>
+                                                 </AccordionTrigger>
+                                                 <AccordionContent className="flex flex-col items-center pt-2">
+                                                     <p className="text-sm text-zinc-300 mb-2">western@latorreimperial.com</p>
+                                                     <div className="flex items-center gap-2 mt-2">
+                                                         <span className="text-xs font-mono bg-black px-2 py-1 rounded text-zinc-300">western@latorreimperial.com</span>
+                                                         <Button variant="outline" size="sm" className="h-6 text-xs border-zinc-700 hover:bg-zinc-800 text-zinc-300" onClick={() => copyToClipboard("western@latorreimperial.com")}>
+                                                            {copied === "western@latorreimperial.com" ? <Check size={12} /> : <Copy size={12} />}
+                                                            <span className="ml-1">{copied === "western@latorreimperial.com" ? "Copiado" : "Copiar"}</span>
+                                                         </Button>
+                                                     </div>
+                                                 </AccordionContent>
+                                             </AccordionItem>
+                                         </Accordion>
+                                         <div className="space-y-2">
+                                             <Label htmlFor="proof-log" className="text-sm text-zinc-400">Subir Comprobante</Label>
+                                             <Input type="file" id="proof-log" accept="image/*" onChange={(e) => setPaymentProof(e.target.files?.[0] || null)} className="bg-black border-zinc-700 text-sm file:bg-zinc-800 file:text-white file:border-0 file:rounded-md file:px-2 file:py-1 file:mr-2 file:text-xs hover:file:bg-zinc-700" />
+                                         </div>
+                                      </div>
+                                   )}
 
-                                  <div className="pt-4">
-                                    <Button 
-                                        onClick={handleCompleteOrder} 
-                                        disabled={uploading || (paymentMethod === "transfer" && !paymentProof)} 
-                                        className="w-full bg-white text-black hover:bg-zinc-200 py-6 text-lg font-bold shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all"
-                                    >
-                                        {uploading ? "Procesando..." : "Completar Pedido"}
-                                    </Button>
-                                  </div>
-                                  {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-                             </div>
+                                   <div className="pt-4">
+                                     <Button 
+                                         onClick={handleCompleteOrder} 
+                                         disabled={uploading || (paymentMethod === "transfer" && !paymentProof)} 
+                                         className="w-full bg-white text-black hover:bg-zinc-200 py-6 text-lg font-bold shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all"
+                                     >
+                                         {uploading ? "Procesando..." : "Completar Pedido"}
+                                     </Button>
+                                   </div>
+                                   {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+                              </div>
                         </div>
                     )}
                 </div>
