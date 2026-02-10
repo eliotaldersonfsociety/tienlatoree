@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+  other: {
+    "preconnect": "https://randomuser.me",
+  },
 }
 
 export default function RootLayout({
