@@ -31,6 +31,8 @@ export function DynamicPricing({
 
     async function loadModel() {
       try {
+        // Initialize TensorFlow backend
+        await tf.ready()
         const model = await tf.loadLayersModel("/model/model.json")
         if (mounted) {
           modelRef.current = model

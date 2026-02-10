@@ -32,6 +32,8 @@ export function SocialNotifications() {
   // 1️⃣ Load model (FIXED)
   useEffect(() => {
     const loadModel = async () => {
+      // Initialize TensorFlow backend
+      await tf.ready()
       const res = await fetch("/model-intent.json")
       const json = await res.json()
 
