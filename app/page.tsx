@@ -1,3 +1,5 @@
+"use client"
+
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/hero"
 import { OrderProcess } from "@/components/order-process"
