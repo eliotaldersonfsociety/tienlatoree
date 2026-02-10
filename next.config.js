@@ -19,8 +19,13 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: [
       "@tensorflow/tfjs",
+      "lucide-react",
     ],
+    optimizeCss: true,
   },
+
+  // Enable React Server Components
+  reactStrictMode: true,
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
